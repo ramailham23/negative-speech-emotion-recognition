@@ -31,13 +31,13 @@ Relying on cloud processing for safety-critical early warning systems introduces
 
 ```mermaid
 flowchart TD
-    A["USB Lavalier Microphone<br/>(Live Audio Stream)"] -->|PyAudio / 48kHz| B["Audio Preprocessing<br/>(Resample to 16kHz & Pre-emphasis)"]
-    B -->|Sliding Window (1s slide)| C["Acoustic Feature Extraction<br/>(MFCC + Delta + Delta-Delta)"]
-    C -->|TFLite INT8 Tensor| D["Inference Engine<br/>(1D-CNN Model)"]
-    D -->|Emotion & Confidence| E{"Negative Emotion?<br/>(Confidence ≥ 55%)"}
-    E -->|Yes| F["Local Output<br/>(LCD 3.5\" GUI)"]
-    E -->|Yes| G["Remote Output<br/>(Telegram Bot API Alert)"]
-    E -->|No| H["No Action / Normal State"]
+    A["USB Lavalier Microphone"] -->|PyAudio 48kHz| B["Audio Preprocessing"]
+    B -->|Resample 16kHz| C["Acoustic Feature Extraction"]
+    C -->|MFCC + Delta + Delta-Delta| D["Inference Engine 1D-CNN"]
+    D -->|Emotion & Confidence| E{"Negative Emotion? <br/> (Confidence >= 55%)"}
+    E -->|Yes| F["Local LCD 3.5 GUI Output"]
+    E -->|Yes| G["Telegram Bot API Alert"]
+    E -->|No| H["Normal State / No Action"]
 ```
 
 ---
@@ -85,9 +85,9 @@ flowchart TD
 
 ### Prerequisites
 
-- Raspberry Pi 4 Model B running Raspberry Pi OS[cite: 58].
-- USB Lavalier Microphone connected to a USB port[cite: 59].
-- 3.5-inch RPi Display connected via 40-pin GPIO header[cite: 59].
+- Raspberry Pi 4 Model B running Raspberry Pi OS.
+- USB Lavalier Microphone connected to a USB port.
+- 3.5-inch RPi Display connected via 40-pin GPIO header.
 - Python 3.7+ installed.
 
 ### Installation
