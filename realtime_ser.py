@@ -20,8 +20,8 @@ import requests
 MODEL_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)),
                           'model', 'cnn1d_ser_int8.tflite')
 
-TELEGRAM_TOKEN   = '8835746307:AAEbcsFZaZTURN2gkDk6gW3FOLhj2nVJN7o'
-TELEGRAM_CHAT_ID = '8677436269'
+TELEGRAM_TOKEN   = 'InputYourTelegramTOKEN'
+TELEGRAM_CHAT_ID = 'InputYourTelegramID'
 NOTIFY_EMOTIONS  = ['Jijik', 'Marah', 'Sedih', 'Takut']
 CONF_THRESHOLD   = 0.55
 COOLDOWN_SEC     = 30
